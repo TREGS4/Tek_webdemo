@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <title>DISPLAYER</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    {{>import}}
+
+    <link rel="stylesheet" href="css/displayer.css">
+</head>
+
+<body>
+
+    {{>header}}
+
+    <div class="container">
+        <div class="left">
+            <div class="top">
+                <div class="head__displayer">
+                    <div class="displayer_title">
+                        <h1>TEK</h1>
+                        <i class="fas fa-power-off"></i>
+                    </div>
+                    <h3>Bla blala la lolop</h3>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="top">
+                    <div class="blockchain__info">
+                        <span>Nombre de blocks : 0</span>
+                        <span>Nombre de transactions validée : 0</span>
+                        <span>Nombre de transactions en cours de validation  : 0</span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="bottom transaction__list">
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="server__status">
+                <h1>Serveur(s)</h1>
+                <span>0</span>
+                <div class="line"></div>
+            </div>
+            <ul class="server__list">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/darkmode.js"></script>
+<script src="js/main.js"></script>
+<script src="js/displayer.js"></script>
+
+</html>

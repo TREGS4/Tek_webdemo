@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/img/register.png">
+    <title>Inscription</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    {{>import}}
+    
+    <link rel="stylesheet" href="css/register.css">
+</head>
+
+
+<body>
+
+    {{>header}}
+
+    <div class="background__cover">
+        <div class="register__container">
+        <div class="register__box">
+            <form id="register" class="register__form">
+                <span class="register__title">Créer un compte </span>
+                <span class="register__icon"><i class="fas fa-address-card"></i></span>
+                <div class="input">
+                    <input class="input__field" type="text" name="login" placeholder=" ">
+                    <span class="input__label">Identifiant</span>
+                </div>
+                <div class="input">
+                    <input class="input__field" type="password" name="password" placeholder=" ">
+                    <span class="input__label">Mot de passe</span>
+                </div>
+                <div class="input">
+                    <input class="input__field" type="password" name="confirm_password" placeholder=" ">
+                    <span class="input__label">Entrez le mot de passe à nouveau </span>
+                </div>
+                <div class="register__submit"><button >S'inscrire</button></div>
+                <a class="register__login" href="/login">Déja inscrit ?</a>
+                <div class="register__info success" id="register_info">
+                    <i class="far fa-question-circle"></i>
+                    <span></span>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/darkmode.js"></script>
+<script src="js/main.js"></script>
+<script src="js/register.js"></script>
+
+</html>

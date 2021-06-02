@@ -1,0 +1,71 @@
+
+.logout__container{
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    line-height: 1.4;
+  
+    font-family: 'Inter', sans-serif;
+    font-size: calc(.6rem + .4vw);
+    color: var(--color-text-1);
+    font-weight: 300;
+}
+
+.logout__box{
+    max-width: 500px;
+    width: 90%;
+    background: var(--color-background-1);
+    opacity: var(--box-opacity);
+    border-radius: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 77px 55px 33px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.logout__box .logout__title{
+    text-align: center;
+}
+.logout__box .logout__icon{
+    text-align: center;
+    font-size: 5rem;
+}
+
+
+
+.logout__box .logout__submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout__box .logout__submit button{
+    color: currentColor;
+    padding: var(--size-bezel) calc(var(--size-bezel) * 2);
+    background: var(--color-accent);
+    border: none;
+    border-radius: var(--size-radius);
+    font-weight: 900;
+}
+.logout__box .logout__submit button:hover{
+    background: var(--color-text-1);
+    color: var(--color-accent);
+}
+.logout__box .logout__submit button:active{
+    transform: scale(1.2);
+}
+
+
+
+
+@media (max-width: 800px) {
+    .logout__box{
+        padding: 77px 20px 33px;
+    }
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Deconnecté de TEK</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {{>import}}
+    
+    <link rel="stylesheet" href="css/logout.css">
+</head>
+
+
+<body>
+    {{>header}}
+
+    <div class="background__cover">
+        <div class="logout__container">
+            <div class="logout__box">
+                <span class="logout__title">Vous avez été déconnecté.</span>
+                <div class="logout__submit"><button >Accueil</button></div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/darkmode.js"></script>
+<script src="js/main.js"></script>
+<script src="js/logout.js"></script>
+
+</html>

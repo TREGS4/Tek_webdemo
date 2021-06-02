@@ -1,0 +1,11 @@
+<div class="header">
+    <div class="header__home" href="/">
+        <i class="fas fa-home"></i>
+    </div>
+    <script>
+        $(document).on("click", ".header__home", function(e) {
+            const href = $(this).attr("href");
+            window.location.href = href;
+        });
+    </script>
+</div>

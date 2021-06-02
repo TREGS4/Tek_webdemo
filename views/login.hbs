@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/img/login.png">
+    <title>Identification</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {{>import}}
+
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+
+<body>
+
+    {{>header}}
+
+    <div class="background__cover">
+
+        <div class="login__container">
+            <div class="login__box">
+                <form id="login" class="login__form">
+                    <span class="login__title">S'identifier</span>
+                    <span class="login__icon"><i class="fas fa-address-card"></i></span>
+                    <div class="input">
+                        <input class="input__field" type="text" name="login" placeholder=" ">
+                        <span class="input__label">Identifiant</span>
+                    </div>
+                    <div class="input">
+                        <input class="input__field" type="password" name="password" placeholder=" ">
+                        <span class="input__label">Mot de passe</span>
+                    </div>
+                    <div class="login__submit"><button>Se connecter</button></div>
+                    <a class="login__register" href="/register">Nouveau sur le site ?</a>
+                    <div class="login__info success" id="login_info">
+                        <i class="far fa-question-circle"></i>
+                        <span></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/darkmode.js"></script>
+<script src="js/main.js"></script>
+<script src="js/login.js"></script>
+
+</html>

@@ -1,0 +1,133 @@
+.login__container{
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    line-height: 1.4;
+  
+    font-family: 'Inter', sans-serif;
+    font-size: calc(.6rem + .4vw);
+    color: var(--color-text-1);
+    font-weight: 300;
+}
+
+.login__box{
+    width: 90%;
+    max-width: 500px;
+    background: var(--color-background-1);
+    opacity: var(--box-opacity);
+    border-radius: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 77px 55px 33px;
+}
+.login__box .login__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login__box .login__title{
+    text-align: center;
+    font-size: 1.5rem;
+}
+.login__box .login__icon{
+    text-align: center;
+    font-size: 5rem;
+}
+
+.input{
+    position: relative;
+    margin: 25px 0;
+}
+
+.input .input__label{
+    position: absolute;
+    left: 0;
+    top: -20px;
+    padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
+    margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * .5);
+    white-space: nowrap;
+    transform: translate(0, 0);
+    transform-origin: 0 0;
+    background: var(--color-background-1);
+    transition: transform 120ms ease-in;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.input .input__field{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border: 3px solid currentColor;
+    padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+    color: currentColor;
+    background: transparent;
+    border-radius: var(--size-radius);
+}
+
+
+.input__field:focus + .input__label, .input__field:not(:placeholder-shown) + .input__label {
+    transform: translate(0.25rem, -45%) scale(0.8);
+    color: var(--color-accent);
+}
+
+
+.login__box .login__submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login__box .login__submit button{
+    color: currentColor;
+    padding: var(--size-bezel) calc(var(--size-bezel) * 2);
+    background: var(--color-accent);
+    border: none;
+    border-radius: var(--size-radius);
+    font-weight: 900;
+}
+.login__box .login__submit button:hover{
+    background: var(--color-text-1);
+    color: var(--color-accent);
+}
+.login__box .login__submit button:active{
+    transform: scale(1.2);
+}
+
+
+.login__register{
+    margin-top: 10px;
+}
+
+
+.login__info{
+    margin-top: 10px;
+    font-size: 1rem;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: none;
+}
+.login__info.error{
+    color: red;
+}
+.login__info.success{
+    color: green;
+}
+
+
+
+
+@media (max-width: 800px) {
+    .login__box{
+        padding: 77px 20px 33px;
+    }
+}
+  
