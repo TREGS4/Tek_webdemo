@@ -1,6 +1,6 @@
 const http = require('http');
 
-const port = 8080;
+const port = 80;
 
 
 const blockchain_data = require("./other/blockchain")(1000);
