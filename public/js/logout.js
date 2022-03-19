@@ -1,5 +1,5 @@
 $.ajax({
-    url: "http://nyte.fr:8080/api/logout",
+    url: "http://tek.ollopa.fr/api/logout",
     type: "GET",
 });
 
