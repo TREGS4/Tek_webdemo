@@ -112,7 +112,7 @@ $("#txs").submit(function(event) {
         if (typeof receiver == "string" && receiver != "" && typeof amount == "number" && !Number.isNaN(amount)) {
             console.log(receiver);
             $.ajax({
-                url: "http://nyte.fr:8080/api/transaction",
+                url: "http://tek.ollopa.fr/api/transaction",
                 type: "POST",
                 data: {
                     receiver: receiver,

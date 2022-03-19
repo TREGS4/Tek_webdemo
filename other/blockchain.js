@@ -54,7 +54,7 @@ class BLOCKCHAIN_DATA {
     }
 
     ask_server() {
-        request('http://nyte.fr:2048/server/count', { json: true }, (err, res, body) => {
+        request('http://node.tek.ollopa.fr:1313/server/count', { json: true }, (err, res, body) => {
             if (err) {
                 let error = err.toString();
                 //console.log(error);
@@ -75,7 +75,7 @@ class BLOCKCHAIN_DATA {
 
 
     ask_blockchain() {
-        request('http://nyte.fr:2048/blockchain', { json: true }, (err, res, body) => {
+        request('http://node.tek.ollopa.fr:1313/blockchain', { json: true }, (err, res, body) => {
             if (err) {
                 let error = err.toString();
                 //console.log(error);
@@ -94,7 +94,7 @@ class BLOCKCHAIN_DATA {
 
 
     ask_tl() {
-        request('http://nyte.fr:2048/transactions/get', { json: true }, (err, res, body) => {
+        request('http://node.tek.ollopa.fr:1313/transactions/get', { json: true }, (err, res, body) => {
             if (err) {
                 let error = err.toString();
                 //console.log(error);
