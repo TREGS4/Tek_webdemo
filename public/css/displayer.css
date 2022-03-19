@@ -12,7 +12,6 @@
 
 .container>.left {
     height: 100%;
-    background-color: beige;
     flex: auto;
     display: flex;
     flex-direction: column;
@@ -20,7 +19,6 @@
 
 .container>.right {
     height: 100%;
-    background-color: bisque;
     min-width: 400px;
     background-color: var(--color-background-1);
     box-shadow: -1px 0px 10px 0px var(--color-shadow-1);
@@ -125,7 +123,7 @@
 
 .head__displayer.on .displayer_title i,
 .head__displayer.on h3 {
-    color: green;
+    color: var(--color-green);
 }
 
 .line {
@@ -166,12 +164,20 @@
 .transaction__item {
     width: 90%;
     max-width: 1520px;
-    background-color: darkcyan;
     display: flex;
     align-items: center;
     flex-direction: row;
     min-height: 40px;
-    margin: 1px 0;
+    margin: 2px 0;
+    border-radius: 5px;
+}
+
+.transaction__item.validated {
+    background-color: var(--color-validated);
+}
+
+.transaction__item.unvalidated {
+    background-color: var(--color-unvalidated);
 }
 
 .transaction__item .info {
@@ -184,14 +190,32 @@
 
 .transaction__item .info .amount {
     min-width: 100px;
+    margin-left: 20px;
 }
 
 .transaction__item .info .address {
     flex: auto;
+    display: flex;
+    flex-direction: row;
 }
 
-.transaction__item .info .status {
-    min-width: 200px;
+.transaction__item .info .address .icon {
+    flex: 0 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transaction__item .info .address .sender {
+    flex: auto;
+    display: flex;
+    justify-content: right;
+}
+
+.transaction__item .info .address .receiver {
+    flex: auto;
+    display: flex;
+    justify-content: left;
 }
 
 .transaction__item .status {
@@ -200,9 +224,22 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: right;
 }
 
-.transaction__item .status span {
-    margin: 0 10px;
+.transaction__item .status i {
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+
+/* Block line item*/
+
+.blockline__item {
+    width: 90%;
+    max-width: 1520px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 20px;
 }

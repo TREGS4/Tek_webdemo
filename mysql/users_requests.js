@@ -64,9 +64,26 @@ function get_login_by_key(callback) {
 }
 
 
+function get_all_users(callback) {
+    let sql_req = "SELECT * FROM `users`";
+
+    connection.execute(
+        sql_req,
+        (err, results, fields) => {
+            if (err == null) {
+                callback(err, results);
+            } else {
+                callback(err, null);
+            }
+        }
+    );
+}
+
+
 module.exports = {
     user_exists: user_exists,
     get_user: get_user,
     add_user: add_user,
     get_login_by_key: get_login_by_key,
+    get_all_users: get_all_users,
 }

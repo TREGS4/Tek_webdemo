@@ -1,7 +1,7 @@
 const connection = require('./mysql/ddb_tek');
 const messages = require('./other/messages');
 
-module.exports = () => {
+module.exports = (blockchain_data, users_data) => {
 
     const path = require('path');
 
@@ -38,7 +38,7 @@ module.exports = () => {
     const connexion_gestion = require("./other/connexion_gestion");
 
     /* ROUTES */
-    const api_router = require("./routes/api");
+    const api_router = require("./routes/api")(blockchain_data, users_data);
 
     /* RENDER ENGINE */
     const hbs = require('hbs');
@@ -95,8 +95,29 @@ module.exports = () => {
     app.get("/client", connexion_gestion.need_connected, (req, res, next) => {
         res.render('client', {
             connected: connexion_gestion.is_connected(req),
-            login: req.session.login
+            login: req.session.login,
+            account: {
+                amount: blockchain_data.get_user_amount(req.session.public_rsa)
+            },
+            server: {
+                connected: blockchain_data.is_online()
+            }
         });
+    });
+
+
+    app.get("/transaction", connexion_gestion.need_connected, (req, res, next) => {
+        res.render('transaction', {
+            connected: connexion_gestion.is_connected(req),
+            login: req.session.login,
+            account: {
+                amount: blockchain_data.get_user_amount(req.session.public_rsa)
+            }
+        });
+    });
+
+    app.get("/notimplemented", (req, res, next) => {
+        res.render('notimplemented', {});
     });
 
     app.use("/api", api_router);

@@ -1,12 +1,12 @@
-$("#login").submit(function( event ) {
+$("#login").submit(function(event) {
     const data = $(this).serializeArray();
 
     const arr_login = data.find(e => e.name == "login");
     const arr_password = data.find(e => e.name == "password");
-    if (arr_login && arr_password){
+    if (arr_login && arr_password) {
         const login = arr_login.value;
         const password = arr_password.value;
-        if (typeof login == "string" && typeof password == "string"){
+        if (typeof login == "string" && typeof password == "string") {
             $.ajax({
                 url: "http://nyte.fr:8080/api/login",
                 type: "GET",
@@ -14,20 +14,20 @@ $("#login").submit(function( event ) {
                     login: login,
                     password: password
                 },
-                success: (res)=>{
-                    display_login_info("success", "Connection réussi avec succès");
+                success: (res) => {
+                    display_login_info("success", "Connexion réussie.");
                     window.location.href = "/";
                 },
-                error: (err)=>{
+                error: (err) => {
                     const res = err.responseJSON;
                     display_login_info("error", res.error);
                 }
             });
-        }else{
-            display_login_info("error", "Une erreur est survenu dans le formulaire");
+        } else {
+            display_login_info("error", "Une erreur est survenue dans le formulaire.");
         }
-    }else{
-        display_login_info("error", "Une erreur est survenu dans le formulaire");
+    } else {
+        display_login_info("error", "Une erreur est survenue dans le formulaire.");
     }
 
     event.preventDefault();
@@ -36,13 +36,13 @@ $("#login").submit(function( event ) {
 
 
 
-function display_login_info(type, msg){
+function display_login_info(type, msg) {
     const info = $("#login_info");
     info.show();
-    if (type == "success"){
+    if (type == "success") {
         info.removeClass("error");
         info.addClass("success");
-    }else{
+    } else {
         info.removeClass("success");
         info.addClass("error");
     }

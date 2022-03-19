@@ -1,10 +1,10 @@
-.login__container {
+.txs__container {
     position: absolute;
     width: 100%;
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     box-sizing: border-box;
     line-height: 1.4;
     font-family: 'Inter', sans-serif;
@@ -13,29 +13,46 @@
     font-weight: 300;
 }
 
-.login__box {
+.txs__box {
     width: 90%;
     max-width: 500px;
     background: var(--color-background-1);
     opacity: var(--box-opacity);
     border-radius: 10px;
-    overflow: hidden;
     box-sizing: border-box;
+    margin: 50px 0;
     padding: 77px 55px 33px;
 }
 
-.login__box .login__form {
+.txs__box .txs_account_info {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.txs__box .txs_account_info .name {
+    font-size: 1rem;
+}
+
+.txs__box .txs_account_info .amount {
+    margin-top: 20px;
+    font-size: 1.3rem;
+}
+
+.txs__box .txs__form {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.login__box .login__title {
+.txs__box .txs__title {
     text-align: center;
     font-size: 1.5rem;
 }
 
-.login__box .login__icon {
+.txs__box .txs__icon {
     text-align: center;
     font-size: 5rem;
 }
@@ -78,13 +95,13 @@
     color: var(--color-accent);
 }
 
-.login__box .login__submit {
+.txs__box .txs__submit {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.login__box .login__submit button {
+.txs__box .txs__submit button {
     color: currentColor;
     padding: var(--size-bezel) calc(var(--size-bezel) * 2);
     background: var(--color-accent);
@@ -93,20 +110,20 @@
     font-weight: 900;
 }
 
-.login__box .login__submit button:hover {
+.txs__box .txs__submit button:hover {
     background: var(--color-text-1);
     color: var(--color-accent);
 }
 
-.login__box .login__submit button:active {
+.txs__box .txs__submit button:active {
     transform: scale(1.2);
 }
 
-.login__register {
+.txs__register {
     margin-top: 10px;
 }
 
-.login__info {
+.txs__info {
     margin-top: 10px;
     font-size: 1rem;
     width: 100%;
@@ -115,16 +132,64 @@
     display: none;
 }
 
-.login__info.error {
+.txs__info.error {
     color: red;
 }
 
-.login__info.success {
+.txs__info.success {
     color: var(--color-green);
 }
 
+.txs__info.warning {
+    color: var(--color-accent);
+}
+
+
+/* user chooser*/
+
+.user__chooser {
+    position: absolute;
+    background-color: #00000000;
+    width: 100%;
+    top: 100%;
+    max-height: 350px;
+    overflow: auto;
+}
+
+.user__item {
+    background-color: var(--color-validated);
+    margin: 3px 10px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 50px;
+}
+
+.user__item:hover {
+    background-color: var(--color-unvalidated);
+}
+
+.user__item .name {
+    font-size: 1.2rem;
+}
+
+.user__item img {
+    margin: 10px;
+    max-width: 40px;
+    border-radius: 50%;
+}
+
 @media (max-width: 800px) {
-    .login__box {
+    .txs__box {
         padding: 77px 20px 33px;
+    }
+}
+
+@media (max-height: 800px) {
+    .user__chooser {
+        max-height: 200px;
+        top: auto;
+        bottom: 100%;
     }
 }

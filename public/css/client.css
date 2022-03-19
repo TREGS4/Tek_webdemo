@@ -1,0 +1,77 @@
+.background__cover {
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    line-height: 1.4;
+    font-family: 'Inter', sans-serif;
+    font-size: calc(.6rem + .4vw);
+    color: var(--color-text-1);
+    font-weight: 300;
+}
+
+.client__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.client__container .client__info {
+    background-color: var(--color-background-1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 25px;
+    border-radius: 10px;
+    margin-bottom: 300px;
+}
+
+.client__container .client__info .name {
+    font-size: 1.8rem;
+}
+
+.client__container .client__info .amount {
+    margin-top: 15px;
+    font-size: 1.2rem;
+}
+
+.cover__menu {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cover__menu .button__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-background-1);
+    opacity: var(--box-opacity);
+    color: var(--color-text-1);
+    border-radius: 10px;
+    height: 75px;
+    min-width: 200px;
+    cursor: pointer;
+    padding-left: 15px;
+    padding-right: 15px;
+    transition: all .2s;
+    margin: 5px 0;
+    font-size: 0.95rem;
+}
+
+.cover__menu .button__item:hover {
+    transform: scale(1.05);
+}
+
+.cover__menu .button__item i {
+    margin-right: 10px;
+}

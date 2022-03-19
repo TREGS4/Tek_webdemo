@@ -38,6 +38,14 @@ $(document).on("click", ".menu_item.state i", function(e) {
     window.location.href = href;
 });
 
+$(document).on("click", ".download__box", function(e) {
+    const href = $(this).attr("href");
+    var link = document.createElement('a');
+    link.href = href;
+    link.download = href.substr(href.lastIndexOf('/') + 1);
+    link.click();
+});
+
 $(window).scroll(function() {
     if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
         $('html').scrollTop(0);

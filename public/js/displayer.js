@@ -16,14 +16,22 @@ class BlockchainStatus {
     }
 
     make_server_item(server) {
+        let mining = '<i class="fas fa-tools" style="color: #b0c6dd;"></i>';
+        let api = '<i class="fas fa-wifi" style="color: var(--color-green)"></i>';
+        if (!server.api || server.api == 0 || server.api == -1) {
+            api = '';
+        }
+        if (!server.mining || server.mining == 0 || server.api == -1) {
+            mining = '';
+        }
         let html_code = `<li class="server__item">
         <div class="server__item__info">
             <span class="ip">${server.hostname}</span>
             <span class="port">${server.port}</span>
         </div>
         <div class=" server__item__icons">
-            <i class="fas fa-tools" style="color: yellow;"></i>
-            <i class="fas fa-wifi" style="color: green;"></i>
+            ${mining}
+            ${api}
         </div></li>`;
         return $(html_code);
     }
@@ -54,17 +62,32 @@ class BlockchainStatus {
 
 class TransactionList {
     constructor() {
-        this.all_transactions = [];
+        this.tmp_transactions = [];
+        this.blocks = [];
         this.list_path = ".transaction__list";
+    }
+
+    make_block_line(block, index) {
+        let html_code = `<div class="blockline__item">
+            <div class="blockhash">
+                <span>Block n°</span>
+                <span>${index}</span>
+            </div>
+        </div>`;
+        return $(html_code);
     }
 
     make_txs_item(txs) {
         let validate_icon = "fas fa-check";
         let unvalidate_icon = "fas fa-recycle";
         let icon = unvalidate_icon;
+        let icon_color = "var(--color-accent)";
         let status_msg = "En cours";
+        let line_class = "unvalidated";
         if (txs.validated) {
             icon = validate_icon;
+            icon_color = "var(--color-green)";
+            line_class = "validated";
             status_msg = "Validée";
         }
 
@@ -75,9 +98,9 @@ class TransactionList {
                 <i class="fab fa-bitcoin"></i>
             </div>
             <div class="address">
-                <span class="sender">${txs.sender}</span>
-                <i class="fas fa-arrow-circle-right"></i>
-                <span class="receiver">${txs.receiver}</span>
+                <div class="name sender"><span>${txs.sender}</span></div>
+                <div class="icon"><i class="fas fa-arrow-circle-right"></i></div>
+                <div class="name receiver"><span>${txs.receiver}</span></div>
             </div>
             <div class="time">
                 <span>${txs.time}</span>
@@ -85,20 +108,35 @@ class TransactionList {
         </div>
         <div class="status">
             <span>${status_msg}</span>
-            <i class="${icon}"></i>
+            <i class="${icon}" style="color: ${icon_color}"></i>
             </div>
         </div>`;
-        return $(html_code);
+        let html = $(html_code);
+        html.addClass(line_class);
+        return html;
     }
 
+    set_data(data) {
+        this.tmp_transactions = data.tmp_transactions;
+        this.blocks = data.blocks;
+        console.log(this.blocks);
+        this.update_list();
+    }
 
-    update_transactions(all_transactions) {
-        this.all_transaction = all_transactions;
+    update_list() {
         $(this.list_path).empty();
-        all_transactions.forEach(txs => {
+        this.tmp_transactions.forEach(txs => {
             let item = this.make_txs_item(txs);
             $(this.list_path).prepend(item);
         });
+        for (let i = this.blocks.length - 1; i >= 0; i--) {
+            let line_item = this.make_block_line(this.blocks[i], i + 1);
+            $(this.list_path).append(line_item);
+            for (let a = this.blocks[i].transactions.length - 1; a >= 0; a--) {
+                let item = this.make_txs_item(this.blocks[i].transactions[a]);
+                $(this.list_path).append(item);
+            }
+        }
     }
 }
 
@@ -112,6 +150,6 @@ socket.on("blockchain_status", data => {
     }
 })
 
-socket.on("blockchain_txs", all_transactions => {
-    tl.update_transactions(all_transactions);
+socket.on("blockchain_txs", data => {
+    tl.set_data(data);
 })

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/img/fleche.png">
+    <title>Faire une transaction</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {{>import}}
+    <link rel="stylesheet" href="css/transaction.css">
+</head>
+
+
+<body>
+
+    {{>header}}
+
+    <div class="background__cover">
+
+        <div class="txs__container">
+            <div class="txs__box">
+                <form id="txs" class="txs__form" autocomplete="off">
+                    <div class="txs_account_info">
+                        <span class="name">Vous êtes connecté en tant que <strong>{{login}}</strong>,</span>
+                        <span class="amount">{{account.amount}} TEK(s)</span>
+                    </div>
+                    <span class="txs__title">Envoyer du TEK</span>
+                    <span class="txs__icon"><i class="fas fa-money-check-alt"></i></span>
+                    <div class="input">
+                        <input class="input__field" type="number" name="amount" placeholder=" " autocomplete="off">
+                        <span class="input__label">Montant</span>
+                    </div>
+                    <div class="input">
+                        <input id="user_input" class="input__field" type="text" name="receiver" placeholder=" " autocomplete="off">
+                        <span class="input__label">Destinataire</span>
+                        <div class="user__chooser" id="users_list">
+                        </div>
+                    </div>
+
+                    <div class="txs__submit"><button>Envoyer</button></div>
+                    <div class="txs__info success" id="txs_info">
+                        <i class="far fa-question-circle"></i>
+                        <span></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/libs/fuzzysort.js"></script>
+<script src="js/darkmode.js"></script>
+<script src="js/main.js"></script>
+<script src="js/transaction.js"></script>
+
+</html>
