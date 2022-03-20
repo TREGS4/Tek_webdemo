@@ -164,7 +164,7 @@ module.exports = (blockchain_data, users_data) => {
                                     }
 
                                     let params = `amount=${amount}&sender=${sender_key}&receiver=${receiver_key}`;
-                                    let url = `http://node.tek.ollopa.fr:1313/transactions/post?${params}`;
+                                    let url = `http://node.tek.ollopa.fr:6968/transactions/post?${params}`;
                                     request(url, { json: true },
                                         (err_req, res_req, body_req) => {
                                             if (err_req) {
