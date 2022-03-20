@@ -1,5 +1,5 @@
 $.ajax({
-    url: "http://tek.ollopa.fr/api/logout",
+    url: "http://tek.ollopa.fr:7000/api/logout",
     type: "GET",
 });
 

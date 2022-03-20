@@ -8,7 +8,7 @@ $("#login").submit(function(event) {
         const password = arr_password.value;
         if (typeof login == "string" && typeof password == "string") {
             $.ajax({
-                url: "http://tek.ollopa.fr/api/login",
+                url: "http://tek.ollopa.fr:7000/api/login",
                 type: "GET",
                 data: {
                     login: login,

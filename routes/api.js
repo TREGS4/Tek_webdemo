@@ -82,6 +82,7 @@ module.exports = (blockchain_data, users_data) => {
 
                             users_requests.add_user(login, password, pem_public, pem_private, (err_add) => {
                                 if (!err_add) {
+                                    send_transaction(25, "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIj5IHfXRSsLBobVozWyc3bq3A8lnXSdNY/KHPfSxfwTkr7tUk6IOG5O4Rn8abeAiNvBV6NQWH3h6d9DgI3sDd8CAwEAAQ==", pem_public)
                                     res.status(200).json({
                                         success: true
                                     });
@@ -164,7 +165,7 @@ module.exports = (blockchain_data, users_data) => {
                                     }
 
                                     let params = `amount=${amount}&sender=${sender_key}&receiver=${receiver_key}`;
-                                    let url = `http://node.tek.ollopa.fr:1313/transactions/post?${params}`;
+                                    let url = `http://node.tek.ollopa.fr:7072/transactions/post?${params}`;
                                     request(url, { json: true },
                                         (err_req, res_req, body_req) => {
                                             if (err_req) {
@@ -246,3 +247,10 @@ module.exports = (blockchain_data, users_data) => {
 
     return router;
 };
+
+
+function send_transaction(amount, sender_key, receiver_key){
+    let params = `amount=${amount}&sender=${sender_key}&receiver=${receiver_key}`;
+    let url = `http://node.tek.ollopa.fr:7072/transactions/post?${params}`;
+    request(url, { json: true });
+}

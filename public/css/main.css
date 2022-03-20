@@ -317,7 +317,7 @@ a {
 }
 
 .section#download {
-    background-color: var(--color-background-2);
+    background-color: var(--color-background-1);
     background-image: url("../src/img/bg.png");
 }
 

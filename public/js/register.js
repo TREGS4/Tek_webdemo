@@ -12,7 +12,7 @@ $("#register").submit(function(event) {
         if (typeof login == "string" && typeof password == "string" && typeof confirm_password == "string") {
             if (password == confirm_password) {
                 $.ajax({
-                    url: "http://tek.ollopa.fr/api/register",
+                    url: "http://tek.ollopa.fr:7000/api/register",
                     type: "POST",
                     data: {
                         login: login,
